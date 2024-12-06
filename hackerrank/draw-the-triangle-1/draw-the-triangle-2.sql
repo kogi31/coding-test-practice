@@ -1,0 +1,13 @@
+WITH  RECURSIVE PATTERN (ROW_NUM, STARS) AS (
+    SELECT  20
+        AS  ROW_NUM,
+            REPEAT('* ', 20)
+        AS  STARS
+ UNION ALL
+    SELECT  ROW_NUM - 1, 
+            REPEAT('* ', ROW_NUM - 1)
+      FROM  PATTERN
+     WHERE  ROW_NUM > 1
+)
+SELECT  STARS
+  FROM  PATTERN;
