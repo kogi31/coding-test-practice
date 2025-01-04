@@ -1,0 +1,11 @@
+-- 코드를 입력하세요
+-- 세단인 자동차들 조건
+-- 10월에 대여를 시작한 기록이 있는 자동차 ID 리스트 출력
+SELECT  DISTINCT C.CAR_ID
+  FROM  CAR_RENTAL_COMPANY_CAR AS C
+  JOIN  CAR_RENTAL_COMPANY_RENTAL_HISTORY AS H
+    ON  C.CAR_ID = H.CAR_ID
+ WHERE  C.CAR_TYPE = '세단'
+   AND  MONTH(H.START_DATE) = '10'
+ ORDER
+    BY  C.CAR_ID DESC;
