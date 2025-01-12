@@ -1,5 +1,8 @@
 -- 코드를 작성해주세요
-WITH RankedData AS (
+-- 대장균 개체의 크기 내림차순
+-- percent_rank() -> 순위
+
+WITH  RankedData AS (
 SELECT  ID
         ,SIZE_OF_COLONY
         ,PERCENT_RANK() OVER (ORDER BY SIZE_OF_COLONY DESC) AS perc_rank
