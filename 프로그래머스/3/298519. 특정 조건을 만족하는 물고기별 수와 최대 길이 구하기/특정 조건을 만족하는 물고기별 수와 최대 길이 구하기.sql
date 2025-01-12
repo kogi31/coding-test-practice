@@ -5,7 +5,9 @@ SELECT  COUNT(*) AS FISH_COUNT
   FROM  FISH_INFO
  GROUP
     BY  FISH_TYPE
-HAVING  AVG(LENGTH) >= 33
+HAVING  AVG(CASE
+                WHEN LENGTH > 10 THEN LENGTH
+                ELSE 10
+            END) >= 33
  ORDER
     BY  FISH_TYPE ASC;
-  
